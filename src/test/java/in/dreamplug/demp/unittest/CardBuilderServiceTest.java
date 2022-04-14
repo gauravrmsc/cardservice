@@ -46,3 +46,15 @@ public class CardBuilderServiceTest {
         assertEquals(cardType.getRenewalFee(), card.getRenewalFee());
     }
 }
+
+
+/*
+ * Mocks are the keys to find the needle in the hey-stack and are extremely helpful while performing regressions.
+ * Mocks can also be useful when the dependencies are yet not ready and one need to test the built component.
+ *
+ * */
+
+/*
+* We can create plugins for JUnit using JUnit Extensions.
+* Eg: MockitoExtension, CommonsTest framework
+* */
