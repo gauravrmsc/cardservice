@@ -85,4 +85,5 @@ public class CreditLimitServiceTest {
  * JUnit tests are single threaded and test context context is not passed from one test method run to another.
  * BeforeEach is called before each test method run
  * BeforeAll is called before JUnit starts executing tests.
+ * Private methods should not be unit tested.
  * */
