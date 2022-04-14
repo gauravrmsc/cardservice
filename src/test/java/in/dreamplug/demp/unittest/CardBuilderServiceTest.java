@@ -21,7 +21,7 @@ public class CardBuilderServiceTest {
         Card card = cardBuilderService.buildCard(CardType.black);
         //notNull assertions
         assertNotNull(card.getCvv());
-        assertNotNull(card.getJoiningFee());
+        assertNotNull(card.getNumber());
         assertEquals(cardType.getBrand(), card.getBrand());
         assertEquals(cardType, card.getCardType());
         assertEquals(cardType.getJoiningFee(), card.getJoiningFee());
