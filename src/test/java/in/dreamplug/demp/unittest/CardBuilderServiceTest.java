@@ -51,7 +51,7 @@ public class CardBuilderServiceTest {
 /*
  * Mocks are the keys to find the needle in the hey-stack and are extremely helpful while performing regressions.
  * Mocks can also be useful when the dependencies are yet not ready and one need to test the built component.
- *
+ * Spy vs mocks
  * */
 
 /*
