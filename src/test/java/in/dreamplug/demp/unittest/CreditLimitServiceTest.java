@@ -67,9 +67,9 @@ public class CreditLimitServiceTest {
     }
 
     /**
-     * 60,000 <= salary < 1,00,000
+     * salary >= 1,00,000
      * Credit Score                   Credit Limit
-     * < 600                           0
+     * < 500                           0
      * 500 <= score < 600              0.3 * salary
      * 600 <= score < 700              0.4 * salary
      * 700 <= score < 800              0.7 * salary
