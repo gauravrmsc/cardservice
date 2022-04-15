@@ -3,9 +3,14 @@ package in.dreamplug.demp.unittest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import in.dreamplug.demo.unittest.service.CreditLimitService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @author gauravkumar
@@ -62,8 +67,10 @@ public class CreditLimitServiceTest {
      * 700 <= score < 800              0.5 * salary
      * score >= 800                   0.6 * salary
      */
-    public void testCreditLimitAverageSalary() {
-        //TODO add tests for 60,000 <= Salary < 1,00,000
+    @ParameterizedTest
+    @MethodSource ("testsForAverageSalary")
+    public void testCreditLimitAverageSalary(TestInput testInput) {
+        assertEquals(testInput.getCreditLimit(), creditLimitService.getCreditLimit(testInput.getSalary(), testInput.getCreditScore()));
     }
 
     /**
@@ -78,8 +85,23 @@ public class CreditLimitServiceTest {
     public void testCreditLimitHighSalary() {
         //TODO add tests for Salary >= 1,00,000
     }
+
+    public static Stream<TestInput> testsForAverageSalary() {
+        return Stream.of(new TestInput(599, 60_000l, 0l), new TestInput(600, 60_000l, (long) (0.4 * 60_000)),
+                new TestInput(700, 60_000l, (long) (0.5 * 60_000)), new TestInput(800, 60_000l, (long) (0.6 * 60_000)));
+    }
+
 }
 
+@AllArgsConstructor
+@Getter
+class TestInput {
+    Integer creditScore;
+
+    Long salary;
+
+    Long creditLimit;
+}
 
 /*
  * JUnit tests are single threaded and test context context is not passed from one test method run to another.
