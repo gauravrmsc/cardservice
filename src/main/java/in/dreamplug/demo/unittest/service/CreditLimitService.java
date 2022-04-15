@@ -1,4 +1,4 @@
-package in.dreamplug.demo.unittest;
+package in.dreamplug.demo.unittest.service;
 
 import java.util.Map;
 import java.util.Optional;
@@ -35,7 +35,7 @@ public class CreditLimitService {
             case 8:
                 return (long) (0.5 * salary);
         }
-        return 0l;
+        return (long) (0.5 * salary);
     }
 
     private Long creditLimitAverageSalary(Long salary, Integer creditScore) {
@@ -47,11 +47,11 @@ public class CreditLimitService {
             case 6:
                 return (long) (0.4 * salary);
             case 7:
-                return (long) (0.55 * salary);
+                return (long) (0.5 * salary);
             case 8:
                 return (long) (0.6 * salary);
         }
-        return 0l;
+        return (long) (0.6 * salary);
     }
 
     private Long creditLimitHighSalary(Long salary, Integer creditScore) {
