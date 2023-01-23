@@ -14,9 +14,9 @@ public class CreditLimitService {
 
     public CreditLimitService() {
         creditLimitProviders = new TreeMap<>();
-        creditLimitProviders.put(25000l, this::creditLimitLowSalary);
-        creditLimitProviders.put(60000l, this::creditLimitAverageSalary);
-        creditLimitProviders.put(100000l, this::creditLimitHighSalary);
+        creditLimitProviders.put(25_000l, this::creditLimitLowSalary);
+        creditLimitProviders.put(60_000l, this::creditLimitAverageSalary);
+        creditLimitProviders.put(1_00_000l, this::creditLimitHighSalary);
     }
 
     public Long getCreditLimit(Long salary, Integer creditScore) {
